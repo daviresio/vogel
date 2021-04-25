@@ -25,7 +25,7 @@ class DarkWebPresentationScreen extends StatelessWidget {
           VogelButton(
             label: 'Start',
             onPressed: () {
-              Navigator.of(context).pushNamed(VogelRoutes.home);
+              Navigator.of(context).pushNamed(VogelRoutes.dashboard);
             },
           ),
         ],
