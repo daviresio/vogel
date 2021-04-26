@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
+import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 import 'package:vogel_app/screens/dashboard/components/dashboard_category.dart';
 import 'package:vogel_app/screens/dashboard/components/item_to_protect.dart';
@@ -94,7 +95,11 @@ class DashboardScreen extends StatelessWidget {
               ItemToProtect(
                 image: 'assets/images/dark_web.png',
                 title: 'Dark Web',
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    VogelRoutes.darkWebPresentation,
+                  );
+                },
               ),
               Container(
                 width: 110,

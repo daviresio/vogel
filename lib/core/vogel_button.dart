@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogel_app/core/vogel_colors.dart';
 
 class VogelButton extends StatelessWidget {
   final void Function() onPressed;
@@ -11,9 +12,19 @@ class VogelButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      child: Text(label),
+    return SizedBox(
+      height: 48.0,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          primary: VogelColors.darkWebColor,
+          textStyle: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(fontWeight: FontWeight.bold),
+        ),
+        child: Text(label),
+      ),
     );
   }
 }

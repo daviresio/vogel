@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
@@ -25,6 +26,12 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w400,
           ),
+          headline2: TextStyle(
+            fontSize: 20,
+            color: VogelColors.textPrimaryColor,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.w600,
+          ),
           overline: TextStyle(
             fontSize: 13,
             color: VogelColors.textPrimaryColor,
@@ -32,16 +39,37 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w300,
             height: 1,
           ),
+          bodyText1: TextStyle(
+            fontSize: 16,
+            color: VogelColors.textPrimaryColor,
+            fontFamily: 'Montserrat',
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
-      initialRoute: VogelRoutes.dashboard,
-      routes: {
-        VogelRoutes.dashboard: (context) => DashboardScreen(),
-        VogelRoutes.darkWebPresentation: (context) =>
-            DarkWebPresentationScreen(),
-        VogelRoutes.darkWebUserData: (context) => DarkWebUserDataScreen(),
-        VogelRoutes.darkWebResult: (context) => DarkWebResultScreen(),
-        VogelRoutes.darkWebRepeat: (context) => DarkWebRepeatScreen(),
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case VogelRoutes.dashboard:
+            return CupertinoPageRoute(
+              builder: (_) => DashboardScreen(),
+            );
+          case VogelRoutes.darkWebPresentation:
+            return CupertinoPageRoute(
+              builder: (_) => DarkWebPresentationScreen(),
+            );
+          case VogelRoutes.darkWebUserData:
+            return CupertinoPageRoute(
+              builder: (_) => DarkWebUserDataScreen(),
+            );
+          case VogelRoutes.darkWebResult:
+            return CupertinoPageRoute(
+              builder: (_) => DarkWebResultScreen(),
+            );
+          case VogelRoutes.darkWebRepeat:
+            return CupertinoPageRoute(
+              builder: (_) => DarkWebRepeatScreen(),
+            );
+        }
       },
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
-import 'package:vogel_app/screens/dashboard/components/item_to_protect.dart';
 
 class DashBoardCategory extends StatelessWidget {
   final String categoryImage;
