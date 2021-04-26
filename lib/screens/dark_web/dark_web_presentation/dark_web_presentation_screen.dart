@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_button.dart';
+import 'package:vogel_app/core/vogel_colors.dart';
+import 'package:vogel_app/core/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
+import 'package:vogel_app/core/vogel_ui.dart';
 import 'package:vogel_app/services/dark_web_service.dart';
 
 class DarkWebPresentationScreen extends StatelessWidget {
@@ -10,6 +13,7 @@ class DarkWebPresentationScreen extends StatelessWidget {
     searchUnprotectedData();
 
     return Scaffold(
+      appBar: VogelUI.appBar(context, title: 'Dark Web'),
       body: Padding(
         padding: const EdgeInsets.all(VogelSpacing.big1),
         child: ListView(
@@ -37,14 +41,14 @@ class DarkWebPresentationScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText1,
             ),
             SizedBox(height: VogelSpacing.medium1),
-            VogelButton(
-              label: 'Start',
-              onPressed: () {
-                Navigator.of(context).pushNamed(VogelRoutes.darkWebUserData);
-              },
-            ),
           ],
         ),
+      ),
+      floatingActionButton: VogelFloatButton(
+        label: 'Start',
+        onPressed: () {
+          Navigator.of(context).pushNamed(VogelRoutes.darkWebUserData);
+        },
       ),
     );
   }

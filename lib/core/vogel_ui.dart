@@ -6,6 +6,19 @@ import 'package:keyboard_actions/keyboard_actions_item.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 
 class VogelUI {
+  static AppBar appBar(context, {required String title, centerTitle = false}) {
+    return AppBar(
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.headline2,
+      ),
+      centerTitle: centerTitle,
+      backgroundColor: VogelColors.white,
+      iconTheme: IconThemeData(color: VogelColors.textPrimaryColor),
+      elevation: 1.0,
+    );
+  }
+
   static KeyboardActionsConfig keyboardActionsConfig(
     BuildContext context, {
     required List<KeyboardActionsItem> actions,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_button.dart';
+import 'package:vogel_app/core/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 import 'package:vogel_app/core/vogel_text_field.dart';
@@ -15,12 +16,14 @@ class DarkWebUserDataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var displayFloatButton = MediaQuery.of(context).viewInsets.bottom == 0;
+
     return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Form(
+      body: Form(
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(FocusNode());
+          },
           child: KeyboardActions(
             config: VogelUI.keyboardActionsConfig(
               context,
@@ -57,19 +60,20 @@ class DarkWebUserDataScreen extends StatelessWidget {
                     textInputAction: TextInputAction.done,
                   ),
                   SizedBox(height: VogelSpacing.medium1),
-                  VogelButton(
-                    label: 'Search',
-                    onPressed: () {
-                      Navigator.of(context)
-                          .pushNamed(VogelRoutes.darkWebResult);
-                    },
-                  ),
                 ],
               ),
             ),
           ),
         ),
       ),
+      floatingActionButton: displayFloatButton
+          ? VogelFloatButton(
+              label: 'Search',
+              onPressed: () {
+                Navigator.of(context).pushNamed(VogelRoutes.darkWebResult);
+              },
+            )
+          : Container(height: 0),
     );
   }
 }

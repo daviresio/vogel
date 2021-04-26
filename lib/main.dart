@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vogel',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: VogelColors.white,
         textTheme: TextTheme(
           headline1: TextStyle(
             fontSize: 20,
