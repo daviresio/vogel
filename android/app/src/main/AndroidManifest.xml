@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vogel.vogel_app">
+    package="io.lockmydata.vogel_test_davi">
    <application
         android:label="Vogel Test Davi"
         android:icon="@mipmap/ic_launcher">
