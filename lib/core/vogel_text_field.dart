@@ -5,6 +5,7 @@ class VogelTextField extends StatelessWidget {
   final String label;
   final TextEditingController? controller;
   final FocusNode? focusNode;
+  final void Function(String value)? onChanged;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
 
@@ -12,6 +13,7 @@ class VogelTextField extends StatelessWidget {
     required this.label,
     this.controller,
     this.focusNode,
+    this.onChanged,
     this.keyboardType,
     this.textInputAction,
   });
@@ -21,11 +23,12 @@ class VogelTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       focusNode: focusNode,
+      onChanged: onChanged,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       style: TextStyle(
         fontSize: 15,
-        color: VogelColors.textFieldTextColor,
+        color: VogelColors.darkWebColor,
         fontFamily: 'Nunito',
         fontWeight: FontWeight.w400,
       ),

@@ -11,8 +11,8 @@ class VogelFloatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: VogelSpacing.big1),
-      width: double.maxFinite,
+      width: MediaQuery.of(context).size.width - (VogelSpacing.big1 * 2),
+      margin: EdgeInsets.only(bottom: VogelSpacing.big1),
       child: VogelButton(
         label: label,
         onPressed: onPressed,
