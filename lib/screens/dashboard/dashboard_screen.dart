@@ -59,7 +59,7 @@ class DashboardScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(VogelSpacing.big1),
             child: Divider(
-              color: VogelColors.gray,
+              color: VogelColors.darkGray,
             ),
           ),
           DashBoardCategory(
@@ -86,7 +86,7 @@ class DashboardScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(VogelSpacing.big1),
             child: Divider(
-              color: VogelColors.gray,
+              color: VogelColors.darkGray,
             ),
           ),
           DashBoardCategory(

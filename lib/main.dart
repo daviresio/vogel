@@ -63,11 +63,17 @@ class MyApp extends StatelessWidget {
             );
           case VogelRoutes.darkWebResult:
             return CupertinoPageRoute(
-              builder: (_) => DarkWebResultScreen(),
+              builder: (_) => DarkWebResultScreen(
+                lakedAccounts: (settings.arguments! as Map)['lakedAccounts'],
+              ),
             );
           case VogelRoutes.darkWebRepeat:
             return CupertinoPageRoute(
               builder: (_) => DarkWebRepeatScreen(),
+            );
+          default:
+            return CupertinoPageRoute(
+              builder: (_) => DashboardScreen(),
             );
         }
       },
