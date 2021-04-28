@@ -109,7 +109,7 @@ class DarkWebUserDataScreen extends StatelessWidget {
                     return;
                   }
 
-                  if (!controller.emailIsValid) {
+                  if (controller.email.isNotEmpty && !controller.emailIsValid) {
                     VogelSnackbar.show(
                       text: 'Please inpute a valid e-mail!',
                       status: VogelSnackBarStatus.warning,

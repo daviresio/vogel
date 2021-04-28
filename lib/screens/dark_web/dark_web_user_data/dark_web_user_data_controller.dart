@@ -57,15 +57,14 @@ abstract class _DarkWebUserDataControllerBase with Store {
   @action
   Future<List<BreachedAccountModel>?> searchleakedData() async {
     isLoading = true;
-    var errorOnFirstRequest = false;
-
     var accountsleaked = <BreachedAccountModel>[];
     if (email.isNotEmpty) {
       var emailResult =
           await DarkWebService.searchUnprotectedData(value: email);
 
       if (emailResult == null) {
-        errorOnFirstRequest = true;
+        isLoading = false;
+        return null;
       } else {
         accountsleaked = emailResult;
       }
@@ -74,11 +73,11 @@ abstract class _DarkWebUserDataControllerBase with Store {
       var usernameResult =
           await DarkWebService.searchUnprotectedData(value: username);
 
-      if (usernameResult == null && errorOnFirstRequest) {
+      if (usernameResult == null) {
         isLoading = false;
         return null;
       } else {
-        accountsleaked = [...accountsleaked, ...usernameResult!];
+        accountsleaked = [...accountsleaked, ...usernameResult];
       }
     }
 

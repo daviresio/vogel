@@ -11,7 +11,9 @@ import 'package:vogel_app/screens/dark_web/dark_web_user_data/dark_web_user_data
 import 'package:vogel_app/screens/dashboard/dashboard_screen.dart';
 
 void main() async {
+  //Only execute code above if app is already initialized
   WidgetsFlutterBinding.ensureInitialized();
+  // Lock orientation on portrait mode
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
@@ -25,6 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    // Load env configurantion here, to load as soon as the app runs
     Settings.loadEnvFile();
   }
 
@@ -32,8 +35,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Vogel',
+      //Here i will define some global styles
       theme: ThemeData(
+        //Define scaffold background as white. I use Scaffold in all pages,
+        //so all pages will have a white background.
         scaffoldBackgroundColor: VogelColors.white,
+        //Define all texts styles variations here, for use on whole project,
+        //i can make some change locally, but in the general i will use this styles.
         textTheme: TextTheme(
           headline1: TextStyle(
             fontSize: 20,
@@ -62,6 +70,8 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
+      //All routes are defined here, in ""VogelRoutes" i store the string, and
+      //here i use a simple switch case for get each screen by respective route string name
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case VogelRoutes.dashboard:
