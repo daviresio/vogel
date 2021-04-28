@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
-import 'package:vogel_app/core/vogel_network_image.dart';
+import 'package:vogel_app/components/vogel_network_image.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 import 'package:vogel_app/models/breached_account/breached_account_model.dart';
 import 'package:auto_size_text/auto_size_text.dart';

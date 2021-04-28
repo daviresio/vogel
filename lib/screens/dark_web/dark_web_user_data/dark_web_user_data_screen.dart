@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:vogel_app/components/vogel_loader.dart';
 import 'package:vogel_app/components/vogel_snackbar.dart';
-import 'package:vogel_app/core/vogel_float_button.dart';
+import 'package:vogel_app/components/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
-import 'package:vogel_app/core/vogel_text_field.dart';
+import 'package:vogel_app/components/vogel_text_field.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
-import 'package:vogel_app/core/vogel_ui.dart';
+import 'package:vogel_app/components/vogel_ui.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_user_data/dark_web_user_data_controller.dart';
 
@@ -91,9 +91,8 @@ class DarkWebUserDataScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Observer(builder: (context) {
-        var displayFloatButton =
-            MediaQuery.of(context).viewInsets.bottom == 0 &&
-                !controller.isLoading;
+        var displayFloatButton = !controller.isLoading &&
+            MediaQuery.of(context).viewInsets.bottom == 0;
         return displayFloatButton
             ? VogelFloatButton(
                 label: 'Search',

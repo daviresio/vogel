@@ -4,10 +4,12 @@ import 'package:vogel_app/core/vogel_colors.dart';
 class VogelButton extends StatelessWidget {
   final void Function() onPressed;
   final String label;
+  final VogelButtonVariation variation;
 
   const VogelButton({
     required this.onPressed,
     required this.label,
+    required this.variation,
   });
 
   @override
@@ -17,7 +19,7 @@ class VogelButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: VogelColors.darkWebColor,
+          primary: variationValues[variation],
           textStyle: Theme.of(context)
               .textTheme
               .bodyText1!
@@ -28,3 +30,9 @@ class VogelButton extends StatelessWidget {
     );
   }
 }
+
+enum VogelButtonVariation { darkWeb }
+
+Map<VogelButtonVariation, Color> variationValues = {
+  VogelButtonVariation.darkWeb: VogelColors.darkWebColor,
+};

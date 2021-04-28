@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vogel_app/core/vogel_float_button.dart';
+import 'package:vogel_app/components/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 

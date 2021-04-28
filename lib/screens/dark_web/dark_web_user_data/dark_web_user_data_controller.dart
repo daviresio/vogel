@@ -61,7 +61,8 @@ abstract class _DarkWebUserDataControllerBase with Store {
 
     var accountsleaked = <BreachedAccountModel>[];
     if (email.isNotEmpty) {
-      var emailResult = await searchUnprotectedData(value: email);
+      var emailResult =
+          await DarkWebService.searchUnprotectedData(value: email);
 
       if (emailResult == null) {
         errorOnFirstRequest = true;
@@ -70,7 +71,8 @@ abstract class _DarkWebUserDataControllerBase with Store {
       }
     }
     if (username.isNotEmpty) {
-      var usernameResult = await searchUnprotectedData(value: username);
+      var usernameResult =
+          await DarkWebService.searchUnprotectedData(value: username);
 
       if (usernameResult == null && errorOnFirstRequest) {
         isLoading = false;

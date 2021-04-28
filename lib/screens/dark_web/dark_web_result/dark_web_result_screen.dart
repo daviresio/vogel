@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vogel_app/core/vogel_button.dart';
+import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
-import 'package:vogel_app/core/vogel_ui.dart';
+import 'package:vogel_app/components/vogel_ui.dart';
 import 'package:vogel_app/models/breached_account/breached_account_model.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_result/components/item_leaked.dart';
 
@@ -85,6 +85,7 @@ class DarkWebResultScreen extends StatelessWidget {
                       width: double.maxFinite,
                       child: VogelButton(
                         label: 'Repeat Weekly?',
+                        variation: VogelButtonVariation.darkWeb,
                         onPressed: () {
                           VogelUI.dialog(
                             context,
@@ -106,6 +107,7 @@ class DarkWebResultScreen extends StatelessWidget {
                       width: double.maxFinite,
                       child: VogelButton(
                         label: 'Done',
+                        variation: VogelButtonVariation.darkWeb,
                         onPressed: () {
                           Navigator.of(context).pushNamedAndRemoveUntil(
                             VogelRoutes.dashboard,

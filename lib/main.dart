@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vogel_app/core/settings.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_presentation/dark_web_presentation_screen.dart';
@@ -12,7 +13,18 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    Settings.loadEnvFile();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

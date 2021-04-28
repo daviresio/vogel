@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vogel_app/core/vogel_button.dart';
+import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
 class VogelFloatButton extends StatelessWidget {
@@ -16,6 +16,7 @@ class VogelFloatButton extends StatelessWidget {
       child: VogelButton(
         label: label,
         onPressed: onPressed,
+        variation: VogelButtonVariation.darkWeb,
       ),
     );
   }

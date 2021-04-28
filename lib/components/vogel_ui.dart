@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
 import 'package:keyboard_actions/keyboard_actions_config.dart';
 import 'package:keyboard_actions/keyboard_actions_item.dart';
-import 'package:vogel_app/core/vogel_button.dart';
+import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_elevation.dart';
 import 'package:vogel_app/core/vogel_radius.dart';
@@ -65,6 +65,7 @@ class VogelUI {
                             Navigator.of(context).pop();
                           },
                           label: cancelLabel,
+                          variation: VogelButtonVariation.darkWeb,
                         ),
                       ),
                     ),
@@ -78,6 +79,7 @@ class VogelUI {
                             onConfirm();
                           },
                           label: confirmLabel,
+                          variation: VogelButtonVariation.darkWeb,
                         ),
                       ),
                     ),
