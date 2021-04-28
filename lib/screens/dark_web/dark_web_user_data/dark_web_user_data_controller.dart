@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:mobx/mobx.dart';
 import 'package:vogel_app/models/breached_account/breached_account_model.dart';
 import 'package:vogel_app/services/dark_web_service.dart';
+import 'package:email_validator/email_validator.dart';
 
 part 'dark_web_user_data_controller.g.dart';
 
@@ -48,42 +49,38 @@ abstract class _DarkWebUserDataControllerBase with Store {
   }
 
   @computed
-  bool get emailIsValid => email.isNotEmpty;
+  bool get emailIsValid => email.isNotEmpty && EmailValidator.validate(email);
 
   @computed
-  bool get usernameIsValid => username.isNotEmpty;
+  bool get fieldsAreEmpty => email.isEmpty && username.isEmpty;
 
   @action
-  Future<List<BreachedAccountModel>?> searchLakedData() async {
-    if (!emailIsValid && !usernameIsValid) {
-      return null;
-    }
-
+  Future<List<BreachedAccountModel>?> searchleakedData() async {
     isLoading = true;
     var errorOnFirstRequest = false;
 
-    var accountsLaked = <BreachedAccountModel>[];
-    if (emailIsValid) {
+    var accountsleaked = <BreachedAccountModel>[];
+    if (email.isNotEmpty) {
       var emailResult = await searchUnprotectedData(value: email);
 
       if (emailResult == null) {
         errorOnFirstRequest = true;
       } else {
-        accountsLaked = emailResult;
+        accountsleaked = emailResult;
       }
     }
-    if (usernameIsValid) {
+    if (username.isNotEmpty) {
       var usernameResult = await searchUnprotectedData(value: username);
 
       if (usernameResult == null && errorOnFirstRequest) {
         isLoading = false;
         return null;
       } else {
-        accountsLaked = [...accountsLaked, ...usernameResult!];
+        accountsleaked = [...accountsleaked, ...usernameResult!];
       }
     }
 
     isLoading = false;
-    return accountsLaked;
+    return accountsleaked;
   }
 }

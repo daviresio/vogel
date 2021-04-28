@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
-import 'package:vogel_app/core/vogel_ui.dart';
 
 class DarkWebPresentationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: VogelUI.appBar(context, title: 'Dark Web'),
       body: Padding(
         padding: const EdgeInsets.all(VogelSpacing.big1),
         child: ListView(

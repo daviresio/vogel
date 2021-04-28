@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
           case VogelRoutes.darkWebResult:
             return CupertinoPageRoute(
               builder: (_) => DarkWebResultScreen(
-                lakedAccounts: (settings.arguments! as Map)['lakedAccounts'],
+                leakedAccounts: (settings.arguments! as Map)['leakedAccounts'],
               ),
             );
           case VogelRoutes.darkWebRepeat:

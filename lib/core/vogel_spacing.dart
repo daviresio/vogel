@@ -1,7 +1,8 @@
 class VogelSpacing {
   static const double none = 0;
   static const double tiny1 = 2.0;
-  static const double tiny2 = 5.0;
+  static const double tiny2 = 4.0;
+  static const double tiny3 = 6.0;
   static const double small1 = 10.0;
   static const double small2 = 12.0;
   static const double small3 = 14.0;

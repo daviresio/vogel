@@ -16,12 +16,12 @@ mixin _$DarkWebUserDataController on _DarkWebUserDataControllerBase, Store {
       (_$emailIsValidComputed ??= Computed<bool>(() => super.emailIsValid,
               name: '_DarkWebUserDataControllerBase.emailIsValid'))
           .value;
-  Computed<bool>? _$usernameIsValidComputed;
+  Computed<bool>? _$fieldsAreEmptyComputed;
 
   @override
-  bool get usernameIsValid =>
-      (_$usernameIsValidComputed ??= Computed<bool>(() => super.usernameIsValid,
-              name: '_DarkWebUserDataControllerBase.usernameIsValid'))
+  bool get fieldsAreEmpty =>
+      (_$fieldsAreEmptyComputed ??= Computed<bool>(() => super.fieldsAreEmpty,
+              name: '_DarkWebUserDataControllerBase.fieldsAreEmpty'))
           .value;
 
   final _$emailAtom = Atom(name: '_DarkWebUserDataControllerBase.email');
@@ -70,12 +70,12 @@ mixin _$DarkWebUserDataController on _DarkWebUserDataControllerBase, Store {
     });
   }
 
-  final _$searchLakedDataAsyncAction =
-      AsyncAction('_DarkWebUserDataControllerBase.searchLakedData');
+  final _$searchleakedDataAsyncAction =
+      AsyncAction('_DarkWebUserDataControllerBase.searchleakedData');
 
   @override
-  Future<List<BreachedAccountModel>?> searchLakedData() {
-    return _$searchLakedDataAsyncAction.run(() => super.searchLakedData());
+  Future<List<BreachedAccountModel>?> searchleakedData() {
+    return _$searchleakedDataAsyncAction.run(() => super.searchleakedData());
   }
 
   final _$_DarkWebUserDataControllerBaseActionController =
@@ -121,7 +121,7 @@ email: ${email},
 username: ${username},
 isLoading: ${isLoading},
 emailIsValid: ${emailIsValid},
-usernameIsValid: ${usernameIsValid}
+fieldsAreEmpty: ${fieldsAreEmpty}
     ''';
   }
 }

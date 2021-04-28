@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_radius.dart';
-import 'package:vogel_app/core/vogel_shimmer.dart';
 
 class VogelNetworkImage extends StatelessWidget {
   final String? url;
@@ -33,7 +32,6 @@ class VogelNetworkImage extends StatelessWidget {
         width: width,
         height: height,
         fit: BoxFit.contain,
-        placeholder: (context, url) => VogelShimmer(),
         errorWidget: (context, url, error) => Container(
           width: width,
           height: height,
