@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/components/vogel_float_button.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
@@ -10,6 +11,7 @@ class DarkWebPresentationScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(VogelSpacing.big1),
         child: ListView(
+          physics: ClampingScrollPhysics(),
           children: [
             Image.asset(
               'assets/images/dark_web.png',
@@ -40,6 +42,7 @@ class DarkWebPresentationScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: VogelFloatButton(
         label: 'Start',
+        variation: VogelButtonVariation.darkWeb,
         onPressed: () {
           Navigator.of(context).pushNamed(VogelRoutes.darkWebUserData);
         },

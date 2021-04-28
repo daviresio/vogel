@@ -1,15 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:vogel_app/core/settings.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_presentation/dark_web_presentation_screen.dart';
-import 'package:vogel_app/screens/dark_web/dark_web_repeat/dark_web_repeat_screen.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_result/dark_web_result_screen.dart';
+import 'package:vogel_app/screens/dark_web/dark_web_scheduling_completed/dark_web_scheduling_completed_screen.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_user_data/dark_web_user_data_screen.dart';
 import 'package:vogel_app/screens/dashboard/dashboard_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -79,9 +82,9 @@ class _MyAppState extends State<MyApp> {
                 leakedAccounts: (settings.arguments! as Map)['leakedAccounts'],
               ),
             );
-          case VogelRoutes.darkWebRepeat:
+          case VogelRoutes.darkWebScheduleCompleted:
             return CupertinoPageRoute(
-              builder: (_) => DarkWebRepeatScreen(),
+              builder: (_) => DarkWebScheduleCompletedScreen(),
             );
           default:
             return CupertinoPageRoute(

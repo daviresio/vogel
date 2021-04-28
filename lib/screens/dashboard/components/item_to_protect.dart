@@ -9,7 +9,7 @@ class ItemToProtect extends StatelessWidget {
   const ItemToProtect({
     required this.image,
     required this.title,
-    required this.onTap,
+    this.onTap,
   });
 
   @override
@@ -21,16 +21,20 @@ class ItemToProtect extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              image,
-              width: 56,
-              height: 56,
-              alignment: Alignment.center,
+            FittedBox(
+              child: Image.asset(
+                image,
+                width: 56,
+                height: 56,
+                alignment: Alignment.center,
+              ),
             ),
             // SizedBox(height: VogelSpacing.small2),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.overline,
+            FittedBox(
+              child: Text(
+                '$title',
+                style: Theme.of(context).textTheme.overline,
+              ),
             ),
             SizedBox(height: VogelSpacing.tiny2),
             Image.asset(

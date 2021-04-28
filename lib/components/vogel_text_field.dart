@@ -8,6 +8,7 @@ class VogelTextField extends StatelessWidget {
   final void Function(String value)? onChanged;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final bool? obscureText;
 
   const VogelTextField({
     required this.label,
@@ -16,6 +17,7 @@ class VogelTextField extends StatelessWidget {
     this.onChanged,
     this.keyboardType,
     this.textInputAction,
+    this.obscureText,
   });
 
   @override
@@ -26,6 +28,7 @@ class VogelTextField extends StatelessWidget {
       onChanged: onChanged,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      obscureText: obscureText ?? false,
       style: TextStyle(
         fontSize: 15,
         color: VogelColors.darkWebColor,

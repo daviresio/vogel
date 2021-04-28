@@ -5,8 +5,13 @@ import 'package:vogel_app/core/vogel_spacing.dart';
 class VogelFloatButton extends StatelessWidget {
   final String label;
   final void Function() onPressed;
+  final VogelButtonVariation variation;
 
-  const VogelFloatButton({required this.label, required this.onPressed});
+  const VogelFloatButton({
+    required this.label,
+    required this.onPressed,
+    required this.variation,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class VogelFloatButton extends StatelessWidget {
       child: VogelButton(
         label: label,
         onPressed: onPressed,
-        variation: VogelButtonVariation.darkWeb,
+        variation: variation,
       ),
     );
   }

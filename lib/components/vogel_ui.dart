@@ -10,15 +10,17 @@ import 'package:vogel_app/core/vogel_radius.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
 class VogelUI {
-  static void dialog(
+  static Future<dynamic> dialog(
     BuildContext context, {
     required void Function() onConfirm,
+    void Function()? onCancel,
     required String confirmLabel,
     required String cancelLabel,
     required String title,
-    required String description,
+    String? description,
+    Widget? descriptionWidget,
   }) {
-    showDialog(
+    return showDialog(
       context: context,
       barrierDismissible: true,
       builder: (_) => SimpleDialog(
@@ -48,12 +50,14 @@ class VogelUI {
                   style: Theme.of(context).textTheme.headline2,
                 ),
                 SizedBox(height: VogelSpacing.medium2),
-                Text(
-                  description,
-                  softWrap: true,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
+                if (description != null)
+                  Text(
+                    description,
+                    softWrap: true,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                if (descriptionWidget != null) descriptionWidget,
                 SizedBox(height: VogelSpacing.medium2),
                 Row(
                   children: [
@@ -62,7 +66,11 @@ class VogelUI {
                         width: 200,
                         child: VogelButton(
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            if (onCancel != null) {
+                              onCancel();
+                            } else {
+                              Navigator.of(context).pop();
+                            }
                           },
                           label: cancelLabel,
                           variation: VogelButtonVariation.darkWeb,
@@ -75,7 +83,6 @@ class VogelUI {
                         width: 200,
                         child: VogelButton(
                           onPressed: () {
-                            Navigator.of(context).pop();
                             onConfirm();
                           },
                           label: confirmLabel,

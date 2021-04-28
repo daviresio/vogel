@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.lockmydata.vogel_test_davi">
+          <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+           <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Vogel Test Davi"
         android:icon="@mipmap/launcher_icon">

@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/components/vogel_button.dart';
+import 'package:vogel_app/components/vogel_center_message.dart';
+import 'package:vogel_app/components/vogel_text_field.dart';
 import 'package:vogel_app/core/vogel_routes.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 import 'package:vogel_app/components/vogel_ui.dart';
 import 'package:vogel_app/models/breached_account/breached_account_model.dart';
 import 'package:vogel_app/screens/dark_web/dark_web_result/components/item_leaked.dart';
+import 'package:vogel_app/screens/dark_web/dark_web_result/dark_web_result_controller.dart';
 
 class DarkWebResultScreen extends StatelessWidget {
   final List<BreachedAccountModel> leakedAccounts;
 
   const DarkWebResultScreen({required this.leakedAccounts});
+
+  void goToCompletedScheduleScreen(BuildContext context) {
+    Navigator.of(context).pushNamed(VogelRoutes.darkWebScheduleCompleted);
+  }
 
   Widget get _darkWebLogo => Image.asset(
         'assets/images/dark_web.png',
@@ -20,6 +27,8 @@ class DarkWebResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = DarkWebResultController();
+
     var displayFloatButton = MediaQuery.of(context).viewInsets.bottom == 0;
 
     return Scaffold(
@@ -43,32 +52,11 @@ class DarkWebResultScreen extends StatelessWidget {
                   SizedBox(height: VogelSpacing.huge1 * 2),
                 ],
               )
-            : Center(
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: VogelSpacing.big1),
-                  margin: EdgeInsets.only(bottom: VogelSpacing.huge1),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      _darkWebLogo,
-                      SizedBox(height: VogelSpacing.medium1),
-                      Text(
-                        'No Leaked data found!',
-                        style: Theme.of(context).textTheme.headline2,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(height: VogelSpacing.medium1),
-                      Text(
-                        'We don\'t found any lakes data for this email/username on Dark Web',
-                        style: Theme.of(context).textTheme.bodyText1,
-                        textAlign: TextAlign.center,
-                        softWrap: true,
-                      ),
-                    ],
-                  ),
-                ),
+            : VogelCenterMessage(
+                image: _darkWebLogo,
+                title: 'No Leaked data found!',
+                description:
+                    'We don\'t found any lakes data for this email/username on Dark Web',
               ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -86,16 +74,53 @@ class DarkWebResultScreen extends StatelessWidget {
                       child: VogelButton(
                         label: 'Repeat Weekly?',
                         variation: VogelButtonVariation.darkWeb,
-                        onPressed: () {
-                          VogelUI.dialog(
+                        onPressed: () async {
+                          var result = await VogelUI.dialog(
                             context,
-                            onConfirm: () {},
+                            onConfirm: () async {
+                              if (await controller.isBiometricAvailable()) {
+                                Navigator.of(context).pop(true);
+                              } else {
+                                Navigator.of(context).pop(false);
+                              }
+                            },
                             confirmLabel: 'Confirm',
                             cancelLabel: 'Cancel',
                             title: 'Repeat Scan Weekly',
                             description:
                                 'The dark web scan will be repeated weekly and the results will be available there',
                           );
+                          if (result == null) {
+                            return;
+                          } else if (result == true) {
+                            var authenticateSuccessFull =
+                                await controller.authenticateUser();
+                            if (authenticateSuccessFull) {
+                              goToCompletedScheduleScreen(context);
+                            }
+                          } else if (result == false) {
+                            await VogelUI.dialog(
+                              context,
+                              onConfirm: () {
+                                Navigator.of(context).pop(true);
+                                goToCompletedScheduleScreen(context);
+                              },
+                              confirmLabel: 'Confirm',
+                              cancelLabel: 'Cancel',
+                              title: 'Please, confirm your email and password',
+                              descriptionWidget: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  VogelTextField(label: 'E-mail'),
+                                  SizedBox(height: VogelSpacing.medium1),
+                                  VogelTextField(
+                                    label: 'Password',
+                                    obscureText: true,
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
                         },
                       ),
                     ),
@@ -108,12 +133,8 @@ class DarkWebResultScreen extends StatelessWidget {
                       child: VogelButton(
                         label: 'Done',
                         variation: VogelButtonVariation.darkWeb,
-                        onPressed: () {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                            VogelRoutes.dashboard,
-                            (route) => false,
-                          );
-                        },
+                        onPressed: () => Navigator.of(context)
+                            .popUntil((route) => route.isFirst),
                       ),
                     ),
                   ),
@@ -124,47 +145,3 @@ class DarkWebResultScreen extends StatelessWidget {
     );
   }
 }
-
-
-                              // showMaterialModalBottomSheet(
-                              //   context: context,
-                              //   builder: (context) => LimitedBox(
-                              //     maxHeight:
-                              //         MediaQuery.of(context).size.height - 80,
-                              //     child: Container(
-                              //       constraints: BoxConstraints(
-                              //           maxHeight:
-                              //               MediaQuery.of(context).size.height -
-                              //                   80),
-                              //       padding: EdgeInsets.zero,
-                              //       child: ClipRRect(
-                              //         borderRadius: BorderRadius.only(
-                              //           topLeft: Radius.circular(
-                              //               VogelRadius.extraLarge),
-                              //           topRight: Radius.circular(
-                              //               VogelRadius.extraLarge),
-                              //         ),
-                              //         child: Material(
-                              //           color: VogelColors.white,
-                              //           child: SafeArea(
-                              //             top: true,
-                              //             child: Column(
-                              //               mainAxisSize: MainAxisSize.min,
-                              //               children: [
-                              //                 Container(
-                              //                   height: 570,
-                              //                   decoration: BoxDecoration(
-                              //                     borderRadius:
-                              //                         BorderRadius.circular(
-                              //                       VogelRadius.extraLarge,
-                              //                     ),
-                              //                   ),
-                              //                 ),
-                              //               ],
-                              //             ),
-                              //           ),
-                              //         ),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // );

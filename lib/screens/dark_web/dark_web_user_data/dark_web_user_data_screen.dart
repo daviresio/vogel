@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/components/vogel_loader.dart';
 import 'package:vogel_app/components/vogel_snackbar.dart';
 import 'package:vogel_app/components/vogel_float_button.dart';
@@ -25,22 +26,23 @@ class DarkWebUserDataScreen extends StatelessWidget {
             description:
                 'It might take a minute or two depending on the network connections...',
             child: Form(
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                },
-                child: KeyboardActions(
-                  config: VogelUI.keyboardActionsConfig(
-                    context,
-                    actions: VogelUI.keyboardActions(
-                      nodes: [
-                        controller.nodeFocusEmail,
-                        controller.nodeFocusUsername,
-                      ],
-                    ),
+              child: KeyboardActions(
+                config: VogelUI.keyboardActionsConfig(
+                  context,
+                  actions: VogelUI.keyboardActions(
+                    nodes: [
+                      controller.nodeFocusEmail,
+                      controller.nodeFocusUsername,
+                    ],
                   ),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
                   child: ListView(
                     shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
@@ -96,6 +98,7 @@ class DarkWebUserDataScreen extends StatelessWidget {
         return displayFloatButton
             ? VogelFloatButton(
                 label: 'Search',
+                variation: VogelButtonVariation.darkWeb,
                 onPressed: () async {
                   if (controller.fieldsAreEmpty) {
                     VogelSnackbar.show(

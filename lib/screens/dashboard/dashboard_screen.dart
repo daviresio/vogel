@@ -10,6 +10,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        physics: ClampingScrollPhysics(),
         children: [
           SizedBox(height: VogelSpacing.big1),
           DashBoardCategory(
@@ -19,22 +20,22 @@ class DashboardScreen extends StatelessWidget {
               ItemToProtect(
                 image: 'assets/images/facebook.png',
                 title: 'Facebook',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/google.png',
                 title: 'Google',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/instagram.png',
                 title: 'Instagram',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/linkedin.png',
                 title: 'Linkedin',
-                onTap: () {},
+                onTap: null,
               ),
             ],
           ),
@@ -51,17 +52,17 @@ class DashboardScreen extends StatelessWidget {
               ItemToProtect(
                 image: 'assets/images/trans_union.png',
                 title: 'TransUnion',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/experian.png',
                 title: 'Experian',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/equifax.png',
                 title: 'Equifax',
-                onTap: () {},
+                onTap: null,
               ),
             ],
           ),
@@ -78,7 +79,7 @@ class DashboardScreen extends StatelessWidget {
               ItemToProtect(
                 image: 'assets/images/data_broker.png',
                 title: 'Data Broker',
-                onTap: () {},
+                onTap: null,
               ),
               ItemToProtect(
                 image: 'assets/images/dark_web.png',
