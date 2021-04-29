@@ -23,7 +23,6 @@ environment:
 dependencies:
   dio: ^4.0.0
   keyboard_actions: ^3.4.0
-  extended_masked_text: ^2.1.0
   mobx: ^2.0.1
   flutter_mobx: ^2.0.0
   freezed_annotation: ^0.14.1
