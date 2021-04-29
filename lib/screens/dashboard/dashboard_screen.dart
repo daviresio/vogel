@@ -10,13 +10,17 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        //I use ClampingScrollPhysics form avoid scroll more or less the list size
         physics: ClampingScrollPhysics(),
         children: [
           SizedBox(height: VogelSpacing.big1),
+          //Each category is defined by this DashBoardCategory widget for reuse the code.
           DashBoardCategory(
             categoryImage: 'assets/images/social_media_privacy.png',
             categoryName: 'Social Media Privacy',
             children: [
+              //Each item is defined by this ItemToProtect, if onTap is "null" dont will
+              //have the ripple effect, but
               ItemToProtect(
                 image: 'assets/images/facebook.png',
                 title: 'Facebook',

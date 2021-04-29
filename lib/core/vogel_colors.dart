@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+//Here is defined all colors used inside application
 class VogelColors {
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff000000);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//This Widget renders a category, and acept childer for render inside a row
 class DashBoardCategory extends StatelessWidget {
   final String categoryImage;
   final String categoryName;

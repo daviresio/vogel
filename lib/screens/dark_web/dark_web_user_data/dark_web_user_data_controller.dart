@@ -54,6 +54,7 @@ abstract class _DarkWebUserDataControllerBase with Store {
   @computed
   bool get fieldsAreEmpty => email.isEmpty && username.isEmpty;
 
+  // Search for leaked data by email and username
   @action
   Future<List<BreachedAccountModel>?> searchleakedData() async {
     isLoading = true;

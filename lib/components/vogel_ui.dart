@@ -9,6 +9,8 @@ import 'package:vogel_app/core/vogel_elevation.dart';
 import 'package:vogel_app/core/vogel_radius.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//This class has a usefull widgets, they are mainly used when needs return the Widget defined type,
+//and no other Widget with other type encapsuling this
 class VogelUI {
   static Future<dynamic> dialog(
     BuildContext context, {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//Item of category on DashboardScreen
 class ItemToProtect extends StatelessWidget {
   final void Function()? onTap;
   final String image;
@@ -21,6 +22,7 @@ class ItemToProtect extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            //Here I use a FittedBox to reduce the size if don't have space to fit this element on the screen
             FittedBox(
               child: Image.asset(
                 image,
@@ -29,7 +31,8 @@ class ItemToProtect extends StatelessWidget {
                 alignment: Alignment.center,
               ),
             ),
-            // SizedBox(height: VogelSpacing.small2),
+            SizedBox(height: VogelSpacing.small2),
+            //Here I use a FittedBox to reduce the size if don't have space to fit this element on the screen
             FittedBox(
               child: Text(
                 '$title',

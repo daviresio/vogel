@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_radius.dart';
 
+//This componet fetch a network image, caching it to avoid download the same image every time,
+//if has a error, display a empty light gray box with same size of expected image
 class VogelNetworkImage extends StatelessWidget {
   final String? url;
   final double width;

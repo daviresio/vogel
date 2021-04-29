@@ -20,8 +20,7 @@ abstract class _DarkWebResultControllerBase with Store {
     }
   }
 
-  // Process of authentication user using
-  // biometrics.
+  // Process of authentication user using fingerPrint or faceId.
   Future<bool> authenticateUser() async {
     try {
       return await _localAuthentication.authenticate(

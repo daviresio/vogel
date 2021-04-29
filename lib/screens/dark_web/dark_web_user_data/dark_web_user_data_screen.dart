@@ -25,6 +25,8 @@ class DarkWebUserDataScreen extends StatelessWidget {
             title: 'Looking on Dark Web, Please wait...',
             description:
                 'It might take a minute or two depending on the network connections...',
+            //This Form and Keyboard actions widgets is for put above keyboard actiona for navigate
+            //between textFields and add a finish button too
             child: Form(
               child: KeyboardActions(
                 config: VogelUI.keyboardActionsConfig(
@@ -36,6 +38,7 @@ class DarkWebUserDataScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                //This gesture detector is for when the user touch the screen, the TextField lose yours focus
                 child: GestureDetector(
                   onTap: () {
                     FocusScope.of(context).requestFocus(FocusNode());
@@ -93,6 +96,8 @@ class DarkWebUserDataScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Observer(builder: (context) {
+        //I hide floating button if isLoaging for floatButton don't appear above the loader widget
+        //and if keyboard is up because it be appearing only a part at this time.
         var displayFloatButton = !controller.isLoading &&
             MediaQuery.of(context).viewInsets.bottom == 0;
         return displayFloatButton
@@ -119,6 +124,7 @@ class DarkWebUserDataScreen extends StatelessWidget {
                   }
 
                   var result = await controller.searchleakedData();
+                  //If return is null, an error happend
                   if (result == null) {
                     VogelSnackbar.show(
                       text:

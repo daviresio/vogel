@@ -1,3 +1,4 @@
+//Here is defined all routes of application
 class VogelRoutes {
   static const String dashboard = '/dashboard';
   static const String darkWebPresentation = '/dark-web/presentation';

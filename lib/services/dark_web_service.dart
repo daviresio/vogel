@@ -32,7 +32,7 @@ class DarkWebService {
       if (response.statusCode == 404) {
         return [];
       }
-
+      //Parse Response data for a list of objects represent this response
       var result = List<BreachedAccountModel>.from(
         (response.data)
             .map((element) => BreachedAccountModel.fromJson(element))

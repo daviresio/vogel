@@ -4,6 +4,7 @@ import 'package:vogel_app/core/vogel_colors.dart';
 import 'package:vogel_app/core/vogel_radius.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//Styled snackbar with warning and error styles
 class VogelSnackbar {
   static final VogelSnackbar _instance = VogelSnackbar._internal();
   VogelSnackbar._internal();

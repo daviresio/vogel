@@ -1,3 +1,5 @@
+//Here is defined all double values for be used on paddings and margins. Can
+//be used as height or width of BoxSizing too whe is used for represent a space
 class VogelSpacing {
   static const double none = 0;
   static const double tiny1 = 2.0;

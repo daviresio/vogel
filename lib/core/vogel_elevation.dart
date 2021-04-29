@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 
+//Here is defined Boxshadow styles used inside application
 class VogelElevation {
   static BoxShadow medium() {
     return BoxShadow(

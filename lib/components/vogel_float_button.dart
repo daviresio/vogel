@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vogel_app/components/vogel_button.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//This FloatButton needs to be used with property "floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,"
+//for be positioned correctly
 class VogelFloatButton extends StatelessWidget {
   final String label;
   final void Function() onPressed;

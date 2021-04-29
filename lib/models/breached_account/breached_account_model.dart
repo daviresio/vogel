@@ -3,6 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'breached_account_model.freezed.dart';
 part 'breached_account_model.g.dart';
 
+//I used freezed package for generate some methods for me whihout i need write boilerplate of code.
+//It works like Kotlin DataClass
 @freezed
 class BreachedAccountModel with _$BreachedAccountModel {
   @JsonSerializable(fieldRename: FieldRename.pascal)
@@ -24,6 +26,7 @@ class BreachedAccountModel with _$BreachedAccountModel {
     required bool isSpamList,
   }) = _BreachedAccountModel;
 
+  //Json serializeble and deserializeble
   factory BreachedAccountModel.fromJson(Map<String, dynamic> json) =>
       _$BreachedAccountModelFromJson(json);
 }

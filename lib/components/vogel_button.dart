@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_colors.dart';
 
+//A button can have different colors, so i define a Variation, for when use a button
+//specify which variation is for use diferrent colors in the same Button component
 class VogelButton extends StatelessWidget {
   final void Function() onPressed;
   final String label;

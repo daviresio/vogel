@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vogel_app/core/vogel_spacing.dart';
 
+//Component to display a centralized message with title, description and optionally an image
 class VogelCenterMessage extends StatelessWidget {
   final Widget? image;
   final String title;
